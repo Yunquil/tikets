@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Programa de Colas</title>
+</head>
+
+<body>
+    <div class="contenedor">
+        <div class="izquierda">
+            <div class="inicio">
+                <h1>programa de colas</h1>
+                <div class="botones">
+                    <a href="publico.html" target="_blank" class="btn" id="pantalla_publica">pantalla publica</a>
+                    <a href="nuevo-ticket.html" target="_blank" class="btn" id="generarTicket">crear tikect</a>
+                </div>
+            </div>
+        </div>
+        <div class="derecha">
+            <form class="container" action="escritorio.html" target="_blank">
+                <input name="escritorio" id="escritorio" type="number" class="input" placeholder="Escritorio" autofocus
+                    required>
+                <button type="submit" class="buttonn">Ingresar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="./socket.io/socket.io.js"></script>
+
+</body>
+
+
+<script>
+    async function validarEscritorio() { }
+</script>
+
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap');
+
+    body {
+        /*   background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%); */
+        height: 100vh;
+        background-color: black;
+        padding: 0;
+        margin: 0;
+        font-family: 'Kanit', sans-serif;
+    }
+
+    .inicio {
+        width: 300px;
+        height: 200px;
+    }
+
+    form{
+        display: flex;
+    }
+
+    h1 {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+
+    .botones {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+
+
+    .contenedor {
+        display: flex;
+        height: 100vh;
+    }
+
+    .izquierda {
+        display: flex;
+        justify-content: center;
+        border: 3px solid white;
+        align-items: center;
+        margin-right: 10px;
+        flex: 1;
+        background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+    }
+
+    .derecha {
+        display: flex;
+        border: 3px solid white;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        background-image: linear-gradient(160deg, #80D0C7 ,#0093E9);
+    }
+
+    .text {
+        font-size: 0.8rem;
+        text-align: left;
+        width: 100%;
+        color: black;
+        font-weight: bold;
+        margin-bottom: 3px;
+    }
+
+    .input {
+        border-radius: 8px;
+        padding: 7px 16px;
+        box-shadow: rgba(77, 79, 82, 0.2) 0px 8px 24px;
+        border: 2px solid rgb(184, 180, 180);
+        font-size: 0.8rem;
+        outline: none;
+        transition: 0.5s ease;
+    }
+
+    .input:hover {
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        border-color: rgb(138, 175, 255);
+    }
+
+    .input:focus {
+        border: 2px solid rgb(57, 120, 255);
+        box-shadow: rgba(133, 130, 130, 0.1) 0px 4px 12px;
+        transform: scale(0.99);
+    }
+
+    .input::placeholder {
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .buttonn {
+        padding: 6px 15px;
+        text-align: center;
+        color: rgb(95, 87, 87);
+        cursor: pointer;
+        background-color: white;
+        border-radius: 6px;
+        border: none;
+        transition: 0.5s;
+        width: 40%;
+        margin-top: 7px;
+        font-size: 13px;
+    }
+
+    .a:hover {
+        border-radius: 7px;
+        background-color: rgb(243, 242, 242);
+        border-color: rgb(236, 232, 232);
+    }
+
+
+    a {
+        position: relative;
+        padding: 10px 20px;
+        border-radius: 7px;
+        border: 1px solid rgb(61, 106, 255);
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 2px;
+        background: transparent;
+        color: #fff;
+        overflow: hidden;
+        box-shadow: 0 0 0 0 transparent;
+        -webkit-transition: all 0.2s ease-in;
+        -moz-transition: all 0.2s ease-in;
+        transition: all 0.2s ease-in;
+        text-decoration: none;
+    }
+
+    a:hover {
+        background: rgb(61, 106, 255);
+        box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+    }
+
+    a:hover::before {
+        -webkit-animation: sh02 0.5s 0s linear;
+        -moz-animation: sh02 0.5s 0s linear;
+        animation: sh02 0.5s 0s linear;
+    }
+
+    a::before {
+        content: '';
+        display: block;
+        width: 0px;
+        height: 86%;
+        position: absolute;
+        top: 7%;
+        left: 0%;
+        opacity: 0;
+        background: #fff;
+        box-shadow: 0 0 50px 30px #fff;
+        -webkit-transform: skewX(-20deg);
+        -moz-transform: skewX(-20deg);
+        -ms-transform: skewX(-20deg);
+        -o-transform: skewX(-20deg);
+        transform: skewX(-20deg);
+    }
+
+    @keyframes sh02 {
+        from {
+            opacity: 0;
+            left: 0%;
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
+            left: 100%;
+        }
+    }
+
+    a:active {
+        box-shadow: 0 0 0 0 transparent;
+        -webkit-transition: box-shadow 0.2s ease-in;
+        -moz-transition: box-shadow 0.2s ease-in;
+        transition: box-shadow 0.2s ease-in;
+    }
+
+    .btn {
+        margin: 5px;
+    }
+</style>
+
+</html>

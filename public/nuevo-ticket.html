@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nuevo Ticket</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <table>
+        <tr>
+            <td>
+                <span id="lblNuevoTicket">
+                    Cargando...
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button class="btn btn-secondary btn-lg">
+                    Crear Ticket
+                </button>
+            </td>
+        </tr>
+    </table>
+
+
+    <script src="./socket.io/socket.io.js"></script>
+    <script src="./js/nuevo-ticket.js"></script>
+
+</body>
+
+<style>
+   body{
+    display: flex;
+    background-image: linear-gradient(160deg, #00e984 0%, #80D0C7 100%);
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+   }
+
+   span{
+    text-align: center;
+    margin: 10px;
+    font-size: 40px;
+    color: rgb(28, 28, 28);
+   }
+
+   button{
+    background-color: aqua;
+    height: 50px;
+    width: 200px;
+    border: 0;
+    font-size: 20px;
+    color: #ffffff;
+    border-radius: 30px;
+   }
+
+   table{
+    display: flex;
+   }
+</style>
+
+</html>
+
